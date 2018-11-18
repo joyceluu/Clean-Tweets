@@ -7,11 +7,13 @@
 <body>
 	<center><h1>Tweets found...</h1></center>
     {% if tweets %}
-    {% for tweet in tweets%}
+    {% for tweet in tweets[0]%}
     <div class="tweet">
            <center> {{tweet}} </center>
     </div>
     {% endfor %}
     {% endif %}
+    <br>
+    <div class="result"><center>Your tweets are <b>{{tweets[1]}}%</b> unclean!</center></div>
 </body>
 </html>

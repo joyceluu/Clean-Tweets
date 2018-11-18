@@ -1,4 +1,5 @@
 import twitter
+import math
 
 api = twitter.Api(consumer_key='puOCS7Qy8rvSvHluJDhJZcqcR',consumer_secret='cIQIzXkRxv2yJlR2GnGZPO2GGiIov7auSZrzlevGsMSVyM701p', access_token_key='625100109-E6Rc57gTnIzlpN86GnEXgFCsBN51KNuJIBEhh8oU', access_token_secret='TVHD8RkO4qIwjE5AplPhXOwgN1WTvNSVglEd6sbzBNiE0')
 
@@ -422,11 +423,12 @@ def flag_tweets(handle, start=0, stop=0):
                 if status not in filtered_statuses:
                     filtered_statuses.append(status)
 
-    return filtered_statuses, len(filtered_statuses) / len(statuses)
-
+    return filtered_statuses, 100*(len(filtered_statuses) / len(statuses))
 
 def cleanedTweets(tweets):
    cleaned = []
-   for status in tweets:
+   for status in tweets[0]:
       cleaned.append(clean_tweet(status))
-   return cleaned
+   return cleaned, tweets[1]
+
+print(cleanedTweets(flag_tweets("alxxyng",0,0)))

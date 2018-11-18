@@ -10,6 +10,14 @@
     border-radius:30px 30px 0px 30px;
 }
 
+.result {
+    width:500px;
+    height:auto;
+    margin:auto;
+    background-color:#f4d742;
+    padding:10px;
+}
+
 body {
     font-family: "Taviraj", serif;
     color:#6783af;
