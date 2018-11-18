@@ -407,7 +407,7 @@ def get_tweets_in_range(statuses, start=0, stop=0):
 
 def flag_tweets(handle, start=0, stop=0):
     """Takes in start and stop dates in the format: '11 13 2018' for Nov. 13 2018"""
-    status_list = api.GetUserTimeline(screen_name=handle)
+    status_list = api.GetUserTimeline(screen_name=handle, count=200)
     statuses = [i.AsDict() for i in status_list]
     if start != 0 and stop != 0:
         start = start.split()
@@ -422,11 +422,11 @@ def flag_tweets(handle, start=0, stop=0):
                 if status not in filtered_statuses:
                     filtered_statuses.append(status)
 
-    return filtered_statuses
+    return filtered_statuses, len(filtered_statuses) / len(statuses)
+
 
 def cleanedTweets(tweets):
    cleaned = []
    for status in tweets:
       cleaned.append(clean_tweet(status))
    return cleaned
-
