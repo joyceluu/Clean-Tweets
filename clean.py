@@ -431,4 +431,3 @@ def cleanedTweets(tweets):
       cleaned.append(clean_tweet(status))
    return cleaned, tweets[1]
 
-print(cleanedTweets(flag_tweets("alxxyng",0,0)))
