@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <title>All Clean!</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='unclean.css') }}">
+</head>
+<html>
+<body>
+	<center><h1>Tweets found...</h1></center>
+    {% if tweets %}
+    {% for tweet in tweets%}
+    <div class="tweet">
+           <center> {{tweet}} </center>
+    </div>
+    {% endfor %}
+    {% endif %}
+</body>
+</html>
